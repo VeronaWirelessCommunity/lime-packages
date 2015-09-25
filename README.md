@@ -1,3 +1,27 @@
+# Firmware Libre-Mesh per NinuxVerona
+
+Qui adattiamo il [firmware Libre-Mesh][a] alle esigenze di [NinuxVerona][b].
+
+Le differenze rispetto al firmware originale possono essere visualizzate [qui][c].
+
+Il firmware potrà essere scaricato già compilato a breve, per ora può essere compilato seguendo le istruzioni sotto o in italiano [qui][d]. Durante il *make config* suggeriamo di selezionare, sotto il menù LiMe, tutti e solo i seguenti pacchetti:
+* lime-debug
+* lime-eb-ip-tables
+* lime-hwd-ground-routing
+* lime-hwd-openwrt-wan
+* lime-proto-batadv
+* lime-proto-wan
+* lime-system
+* lime-webui
+
+e indicando nel file feeds il repository di codice di NinuxVerona, ossia usando il comando
+
+    echo "src-git lime https://github.com/VeronaWirelessCommunity/lime-packages.git" >> feeds.conf
+
+invece dell'equivalente presente nelle istruzioni generiche.
+
+***
+
 [![tip for next commit](http://tip4commit.com/projects/804.svg)](http://tip4commit.com/projects/804)
 
 # Libre-Mesh packages "Big Bang" release (14.07)
@@ -8,7 +32,7 @@ The firmware (the main piece) will allow simple deployment of auto-configurable,
 
 ## Building a firmware image
 
-The Libre-Mesh firmware can be compiled either manually adding the feed to a [OpenWrt buildroot][1] environment or using the easy to use [lime-build][2] tool.
+The Libre-Mesh firmware can be compiled either manually adding the feed to a [OpenWrt buildroot][1] environment.
 
 ### Using OpenWrt buildroot
 
@@ -39,13 +63,12 @@ Compile the firmware images.
 
 The resulting files will be present in bin/ directory.
 
-### Using lime-build
-
-Refer to [lime-build][2] documentation.
-
 [1]: http://wiki.openwrt.org/doc/start#building_openwrt
-[2]: https://github.com/libre-mesh/lime-build
 [3]: http://libre-mesh.org/projects/libre-mesh/wiki/Objectives
 [4]: http://libre-mesh.org/projects/libre-mesh/wiki/Network_Architecture
 [5]: http://libre-mesh.org/
 [6]: http://libre-mesh.org/projects/libre-mesh/wiki/Compile_Manually
+[a]: https://github.com/libre-mesh/lime-packages
+[b]: http://verona.ninux.org
+[c]: https://github.com/libre-mesh/lime-packages/compare/develop...VeronaWirelessCommunity:develop
+[d]: http://wiki.ninux.org/Libre-Mesh
