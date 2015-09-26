@@ -6,7 +6,7 @@
 # and on https://libre-mesh.org
 
 config lime system
-	option hostname 'LiMe-%M4%M5%M6'
+	option hostname 'NinuxVerona-%M4%M5%M6'
 
 config lime network
 	option primary_interface eth0
